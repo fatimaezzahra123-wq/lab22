@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fitsSystemWindows="true" android:paddingTop="?attr/actionBarSize" android:background="#F5F5F5">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,34 +7,50 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Hello -->
         <TextView
             android:id="@+id/tvHello"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:paddingBottom="8dp"/>
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:layout_marginBottom="10dp"/>
 
+        <!-- Factorial -->
         <TextView
             android:id="@+id/tvFact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:paddingBottom="8dp"/>
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:layout_marginBottom="10dp"/>
 
+        <!-- Reverse -->
         <TextView
             android:id="@+id/tvReverse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:paddingBottom="8dp"/>
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:layout_marginBottom="10dp"/>
 
+        <!-- Array + Benchmark -->
         <TextView
             android:id="@+id/tvArray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:paddingBottom="8dp"/>
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:layout_marginBottom="10dp"/>
 
     </LinearLayout>
 </ScrollView>

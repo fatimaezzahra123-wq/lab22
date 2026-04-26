@@ -1,19 +1,16 @@
 package projet.ensa.ma.app.lab22_devel;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // 🔹 Méthodes JNI existantes
+    // 🔹 JNI methods
     public native String helloFromJNI();
     public native int factorial(int n);
     public native String reverseString(String s);
     public native int sumArray(int[] values);
-
-    // 🔹 Nouvelle méthode JNI (benchmark)
     public native long nativeSum(int n);
 
     static {
@@ -30,26 +27,33 @@ public class MainActivity extends AppCompatActivity {
         TextView tvReverse = findViewById(R.id.tvReverse);
         TextView tvArray = findViewById(R.id.tvArray);
 
-        // 🔹 JNI basique
-        tvHello.setText(helloFromJNI());
+        // 🔹 Hello JNI
+        tvHello.setText("🔹 Hello JNI\n\n" + helloFromJNI());
 
-        // 🔹 Factorial tests
+        // 🔹 Factorial
         tvFact.setText(
-                "factorial(10) = " + factorial(10) + "\n" +
-                        "factorial(-5) = " + factorial(-5) + "\n" +
-                        "factorial(20) = " + factorial(20)
+                "🔹 Factorial\n\n" +
+                        "10! = " + factorial(10) + "\n" +
+                        "-5 → " + factorial(-5) + " (erreur)\n" +
+                        "20 → " + factorial(20) + " (overflow)"
         );
 
         // 🔹 Reverse
-        tvReverse.setText("reverse(\"\") = [" + reverseString("") + "]");
+        tvReverse.setText(
+                "🔹 Reverse String\n\n" +
+                        "Input : \"\"\n" +
+                        "Output : [" + reverseString("") + "]"
+        );
 
-        // 🔹 Sum array
-        tvArray.setText("sum([]) = " + sumArray(new int[]{}));
+        // 🔹 Sum Array
+        tvArray.setText(
+                "🔹 Sum Array\n\n" +
+                        "sum([]) = " + sumArray(new int[]{})
+        );
 
-        // BENCHMARK JAVA vs C++
+        // 🔥 Benchmark
         int n = 10000000;
 
-        // Java
         long startJava = System.nanoTime();
         long sumJava = 0;
         for (int i = 0; i < n; i++) {
@@ -57,18 +61,18 @@ public class MainActivity extends AppCompatActivity {
         }
         long endJava = System.nanoTime();
 
-        // C++
         long startNative = System.nanoTime();
         long sumNative = nativeSum(n);
         long endNative = System.nanoTime();
 
-        // Affichage benchmark
         tvArray.append(
-                "\n\n--- Benchmark ---\n" +
-                        "Java sum = " + sumJava + "\n" +
-                        "Time Java = " + (endJava - startJava) + " ns\n\n" +
-                        "Native sum = " + sumNative + "\n" +
-                        "Time C++ = " + (endNative - startNative) + " ns"
+                "\n\n📊 Benchmark\n\n" +
+                        "Java:\n" +
+                        "Sum = " + sumJava + "\n" +
+                        "Time = " + (endJava - startJava) + " ns\n\n" +
+                        "C++:\n" +
+                        "Sum = " + sumNative + "\n" +
+                        "Time = " + (endNative - startNative) + " ns"
         );
     }
 }
