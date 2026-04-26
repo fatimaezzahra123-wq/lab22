@@ -24,7 +24,7 @@ Voici le rendu de l’interface :
 
 ---
 
-## 🧪 Résultats obtenus
+## Résultats obtenus
 
 * ✔ Communication JNI fonctionnelle
 * ✔ Résultats corrects pour toutes les fonctions
@@ -32,7 +32,7 @@ Voici le rendu de l’interface :
 
 ---
 
-## 🚀 Technologies utilisées
+##  Technologies utilisées
 
 * Java (Android)
 * C++
